@@ -5,25 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Exchange"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="600">
     <Grid>
         <Button Content="Odśwież" HorizontalAlignment="Left" Height="36" Margin="194,262,0,0" VerticalAlignment="Top" Width="124" Click="Button_Click" RenderTransformOrigin="0.499,1.483"/>
+        
         <TextBlock HorizontalAlignment="Left" Height="22" Margin="62,20,0,0" TextWrapping="Wrap" Text="dolar amerykański" VerticalAlignment="Top" Width="107"/>
         <TextBlock Name="dolary" HorizontalAlignment="Left" Height="22" Margin="246,20,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="72"/>
+        
         <TextBlock HorizontalAlignment="Left" Height="22" Margin="62,60,0,0" TextWrapping="Wrap" Text="frank szwajcarski" VerticalAlignment="Top" Width="107"/>
         <TextBlock Name="franki" HorizontalAlignment="Left" Height="22" Margin="246,60,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="72"/>
+        
         <TextBlock HorizontalAlignment="Left" Height="22" Margin="62,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="107"><Run Text="euro"/><LineBreak/><Run/></TextBlock>
         <TextBlock Name="euro" HorizontalAlignment="Left" Height="22" Margin="246,100,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="72"/>
+        
         <TextBlock HorizontalAlignment="Left" Height="22" Margin="62,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="107"><Run Text="funt"/><LineBreak/><Run/></TextBlock>        
         <TextBlock Name="funt" HorizontalAlignment="Left" Height="22" Margin="246,140,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="72"/>
         
         <TextBlock HorizontalAlignment="Left" Height="22" Margin="62,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="107"><Run Text="korony czeskie"/><LineBreak/><Run/></TextBlock>
         <TextBlock Name="korony" HorizontalAlignment="Left" Height="22" Margin="246,180,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="72"/>
+        
         <TextBlock HorizontalAlignment="Left" Height="22" Margin="62,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="107"><Run Text="rubel"/><LineBreak/><Run/></TextBlock>
         <TextBlock Name="ruble" HorizontalAlignment="Left" Height="22" Margin="246,220,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="72"/>
         
-        <TextBlock Name="update" HorizontalAlignment="Left" Height="20" Margin="425,29,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="82" RenderTransformOrigin="0.527,1.019"/>
-        <TextBlock Name="TB1" HorizontalAlignment="Left" Height="37" Margin="355,22,0,0" TextWrapping="Wrap" Text="Ostatnia aktualizacja :" VerticalAlignment="Top" Width="70" />
+        <TextBlock Name="update" HorizontalAlignment="Left" Height="20" Margin="500,29,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="82" RenderTransformOrigin="0.527,1.019"/>
+        <TextBlock Name="TB1" HorizontalAlignment="Left" Height="37" Margin="425,20,0,0" TextWrapping="Wrap" Text="Ostatnia aktualizacja :" VerticalAlignment="Top" Width="70" />
+        
+        <ListBox Name="CurrencyList" HorizontalAlignment="Left" Height="216" Margin="355,82,0,0" VerticalAlignment="Top" Width="152" SelectionChanged="CurrencyList_SelectionChanged"/>
+        <TextBlock x:Name="List_value" HorizontalAlignment="Left" Height="22" Margin="512,100,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="72"/>
 
     </Grid>
 </Window>

@@ -21,46 +21,61 @@ namespace WPF_Exchange
     /// </summary>
     public partial class MainWindow : Window
     {
+        public XmlDocument kurs = new XmlDocument();
+
         public MainWindow()
         {
-            InitializeComponent();
-         
-        }
+            InitializeComponent();         
+        }       
 
         void GetData()
-        {        
-                XmlDocument kurs = new XmlDocument();
-                kurs.Load("http://www.nbp.pl/kursy/xml/a049z180309.xml");   //ladowanie danych z NBP
+        {           
+           kurs.Load("http://www.nbp.pl/kursy/xml/a049z180309.xml");   //ladowanie danych z NBP       
+           XmlNodeList elemList =  kurs.GetElementsByTagName("nazwa_waluty");
+           XmlNodeList elemList2 = kurs.GetElementsByTagName("kurs_sredni");
+           XmlNodeList elemList3 = kurs.GetElementsByTagName("data_publikacji");
 
-                XmlNodeList elemList = kurs.GetElementsByTagName("nazwa_waluty");
-                XmlElement elemList3 = kurs.GetElementById("forint (Węgry)");
-                XmlNodeList elemList2 = kurs.GetElementsByTagName("kurs_sredni");
-            
-            dolary.Text = search(elemList, elemList2,"dolar amerykański") + " PLN";
-            euro.Text = search(elemList, elemList2, "euro") + " PLN";
-            franki.Text = search(elemList, elemList2, "frank szwajcarski") + " PLN";
-            funt.Text = search(elemList, elemList2, "funt szterling") + " PLN";
-            korony.Text = search(elemList, elemList2, "korona czeska") + " PLN";
-            ruble.Text = search(elemList, elemList2, "rubel rosyjski") + " PLN";
-          
+           dolary.Text = search(elemList, elemList2,"dolar amerykański") + " PLN";
+           euro.Text = search(elemList, elemList2, "euro") + " PLN";
+           franki.Text = search(elemList, elemList2, "frank szwajcarski") + " PLN";
+           funt.Text = search(elemList, elemList2, "funt szterling") + " PLN";
+           korony.Text = search(elemList, elemList2, "korona czeska") + " PLN";
+           ruble.Text = search(elemList, elemList2, "rubel rosyjski") + " PLN";
+           update.Text = elemList3[0].InnerXml.ToString();
         }
 
-        string search(XmlNodeList listwaluta,XmlNodeList kurs, string waluta)
+        string search(XmlNodeList currency,XmlNodeList cost, string s_currency)
         {
-            for (int i = 0; i < listwaluta.Count; i++)
+            for (int i = 0; i < currency.Count; i++)
             {
-                if (listwaluta[i].InnerXml.ToString() == waluta)
-                {                     
-                    return kurs[i].InnerXml.ToString();
+                if (currency[i].InnerXml.ToString() == s_currency)
+                { return cost[i].InnerXml.ToString();
                 }   
             }
-            return "ERROR";
-           
+            return "ERROR";           
+        }
+
+        void FillList()
+        {
+            XmlNodeList elemList = kurs.GetElementsByTagName("nazwa_waluty");
+            for (int i = 0; i < elemList.Count; i++)
+            {
+                CurrencyList.Items.Add(elemList[i].InnerXml.ToString());              
+            }            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             GetData();
+            FillList();
+        }
+
+        private void CurrencyList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            XmlNodeList elemList2 = kurs.GetElementsByTagName("kurs_sredni");
+
+            int x = CurrencyList.SelectedIndex;
+                List_value.Text = elemList2[x].InnerXml.ToString();
         }
     }
 
