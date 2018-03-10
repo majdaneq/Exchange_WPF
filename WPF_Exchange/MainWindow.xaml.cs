@@ -25,7 +25,10 @@ namespace WPF_Exchange
 
         public MainWindow()
         {
-            InitializeComponent();         
+            InitializeComponent();
+
+            GetData();
+            FillList();
         }       
 
         void GetData()
@@ -57,7 +60,7 @@ namespace WPF_Exchange
 
         void FillList()
         {
-            XmlNodeList elemList = kurs.GetElementsByTagName("nazwa_waluty");
+             XmlNodeList elemList = kurs.GetElementsByTagName("nazwa_waluty");
             for (int i = 0; i < elemList.Count; i++)
             {
                 CurrencyList.Items.Add(elemList[i].InnerXml.ToString());              

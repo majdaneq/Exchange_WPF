@@ -5,33 +5,89 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Exchange"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="600">
-    <Grid>
-        <Button Content="Odśwież" HorizontalAlignment="Left" Height="36" Margin="194,262,0,0" VerticalAlignment="Top" Width="124" Click="Button_Click" RenderTransformOrigin="0.499,1.483"/>
-        
-        <TextBlock HorizontalAlignment="Left" Height="22" Margin="62,20,0,0" TextWrapping="Wrap" Text="dolar amerykański" VerticalAlignment="Top" Width="107"/>
-        <TextBlock Name="dolary" HorizontalAlignment="Left" Height="22" Margin="246,20,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="72"/>
-        
-        <TextBlock HorizontalAlignment="Left" Height="22" Margin="62,60,0,0" TextWrapping="Wrap" Text="frank szwajcarski" VerticalAlignment="Top" Width="107"/>
-        <TextBlock Name="franki" HorizontalAlignment="Left" Height="22" Margin="246,60,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="72"/>
-        
-        <TextBlock HorizontalAlignment="Left" Height="22" Margin="62,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="107"><Run Text="euro"/><LineBreak/><Run/></TextBlock>
-        <TextBlock Name="euro" HorizontalAlignment="Left" Height="22" Margin="246,100,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="72"/>
-        
-        <TextBlock HorizontalAlignment="Left" Height="22" Margin="62,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="107"><Run Text="funt"/><LineBreak/><Run/></TextBlock>        
-        <TextBlock Name="funt" HorizontalAlignment="Left" Height="22" Margin="246,140,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="72"/>
-        
-        <TextBlock HorizontalAlignment="Left" Height="22" Margin="62,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="107"><Run Text="korony czeskie"/><LineBreak/><Run/></TextBlock>
-        <TextBlock Name="korony" HorizontalAlignment="Left" Height="22" Margin="246,180,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="72"/>
-        
-        <TextBlock HorizontalAlignment="Left" Height="22" Margin="62,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="107"><Run Text="rubel"/><LineBreak/><Run/></TextBlock>
-        <TextBlock Name="ruble" HorizontalAlignment="Left" Height="22" Margin="246,220,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="72"/>
-        
-        <TextBlock Name="update" HorizontalAlignment="Left" Height="20" Margin="500,29,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="82" RenderTransformOrigin="0.527,1.019"/>
-        <TextBlock Name="TB1" HorizontalAlignment="Left" Height="37" Margin="425,20,0,0" TextWrapping="Wrap" Text="Ostatnia aktualizacja :" VerticalAlignment="Top" Width="70" />
-        
+        Title="Kursy Walut" Height="350" Width="600" BorderBrush="#FF470808" Foreground="Black" OpacityMask="#FF6C2C2C">
+    <Grid Background="#FFFBFBFB">
+        <Button Content="Odśwież" HorizontalAlignment="Left" Height="36" Margin="194,262,0,0" VerticalAlignment="Top" Width="124" Click="Button_Click" RenderTransformOrigin="0.499,1.483" Foreground="White" BorderBrush="Black" Background="#FF0078D7"/>
+
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="24,20,0,0" TextWrapping="Wrap" Text="dolar amerykański (USD):" VerticalAlignment="Top" Width="145" FontWeight="Bold" />
+
+        <TextBlock Name="dolary" HorizontalAlignment="Left" Height="22" Margin="246,20,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="72" OpacityMask="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" FontWeight="Bold">
+            <TextBlock.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF067DF5" Offset="0.96"/>
+                    <GradientStop Color="White" Offset="0.847"/>
+                </LinearGradientBrush>
+            </TextBlock.Background>
+        </TextBlock>
+
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="24,60,0,0" TextWrapping="Wrap" Text="frank szwajcarski (CHF):" VerticalAlignment="Top" Width="145" FontWeight="Bold"/>
+        <TextBlock Name="franki" HorizontalAlignment="Left" Height="22" Margin="246,60,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="72" OpacityMask="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" FontWeight="Bold">
+            <TextBlock.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF067DF5" Offset="0.96"/>
+                    <GradientStop Color="White" Offset="0.847"/>
+                </LinearGradientBrush>
+            </TextBlock.Background>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="24,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Text="euro (EUR):" FontWeight="Bold"/>
+        <TextBlock Name="euro" HorizontalAlignment="Left" Height="22" Margin="246,100,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="72" OpacityMask="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" FontWeight="Bold">
+            <TextBlock.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF067DF5" Offset="0.96"/>
+                    <GradientStop Color="White" Offset="0.847"/>
+                </LinearGradientBrush>
+            </TextBlock.Background>
+        </TextBlock>
+
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="24,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Text="funt szterling (GBP):" FontWeight="Bold"/>
+        <TextBlock Name="funt" HorizontalAlignment="Left" Height="22" Margin="246,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72" OpacityMask="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" FontWeight="Bold">
+            <TextBlock.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF067DF5" Offset="0.96"/>
+                    <GradientStop Color="White" Offset="0.847"/>
+                </LinearGradientBrush>
+            </TextBlock.Background>
+        </TextBlock>
+
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="24,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Text="korony czeskie (CZK):" FontWeight="Bold"/>
+        <TextBlock Name="korony" HorizontalAlignment="Left" Height="22" Margin="246,180,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="72" OpacityMask="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" FontWeight="Bold">
+            <TextBlock.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF067DF5" Offset="0.96"/>
+                    <GradientStop Color="White" Offset="0.847"/>
+                </LinearGradientBrush>
+            </TextBlock.Background>
+        </TextBlock>
+
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="24,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Text="rubel rosyjski (RUB):" FontWeight="Bold"/>
+        <TextBlock Name="ruble" HorizontalAlignment="Left" Height="22" Margin="246,220,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="72" OpacityMask="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" Foreground="#FF0078D7" FontWeight="Bold">
+            <TextBlock.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF067DF5" Offset="0.96"/>
+                    <GradientStop Color="White" Offset="0.847"/>
+                </LinearGradientBrush>
+            </TextBlock.Background>
+        </TextBlock>
+
+        <TextBlock Name="update" HorizontalAlignment="Left" Height="20" Margin="500,29,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="82" RenderTransformOrigin="0.527,1.019" OpacityMask="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" FontWeight="Bold" FontFamily="{DynamicResource {x:Static SystemFonts.IconFontFamilyKey}}">
+            <TextBlock.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF067DF5" Offset="0.96"/>
+                    <GradientStop Color="White" Offset="0.847"/>
+                </LinearGradientBrush>
+            </TextBlock.Background>
+        </TextBlock>
+        <TextBlock Name="TB1" HorizontalAlignment="Left" Height="37" Margin="425,20,0,0" TextWrapping="Wrap" Text="Ostatnia aktualizacja :" VerticalAlignment="Top" Width="70" FontWeight="Bold" />
+
         <ListBox Name="CurrencyList" HorizontalAlignment="Left" Height="216" Margin="355,82,0,0" VerticalAlignment="Top" Width="152" SelectionChanged="CurrencyList_SelectionChanged"/>
-        <TextBlock x:Name="List_value" HorizontalAlignment="Left" Height="22" Margin="512,100,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="72"/>
+        <TextBlock x:Name="List_value" HorizontalAlignment="Left" Height="22" Margin="512,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="72" OpacityMask="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" FontWeight="Bold">
+            <TextBlock.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF067DF5" Offset="0.96"/>
+                    <GradientStop Color="White" Offset="0.847"/>
+                </LinearGradientBrush>
+            </TextBlock.Background>
+        </TextBlock>
 
     </Grid>
 </Window>
