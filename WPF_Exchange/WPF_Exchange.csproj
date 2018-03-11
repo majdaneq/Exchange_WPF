@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data.cs" />
     <Compile Include="Historia.xaml.cs">
       <DependentUpon>Historia.xaml</DependentUpon>
     </Compile>

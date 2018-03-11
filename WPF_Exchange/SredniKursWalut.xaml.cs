@@ -26,11 +26,16 @@ namespace WPF_Exchange
         public SredniKursWalut()
         {
             InitializeComponent();
+            
         }
+
+   
 
         void GetData()
         {
-            kurs.Load("http://www.nbp.pl/kursy/xml/a049z180309.xml");                    //ladowanie danych z NBP       
+            Data nazwa = new Data();
+            
+            kurs.Load(nazwa.NazwaPliku());                                            //ladowanie danych z NBP       
             XmlNodeList elemList = kurs.GetElementsByTagName("nazwa_waluty");
             XmlNodeList elemList2 = kurs.GetElementsByTagName("kurs_sredni");
             XmlNodeList elemList3 = kurs.GetElementsByTagName("data_publikacji");
@@ -65,7 +70,7 @@ namespace WPF_Exchange
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BC_Refresh(object sender, RoutedEventArgs e)
         {
             GetData();
             FillList();
