@@ -15,27 +15,20 @@ using System.Windows.Shapes;
 using System.Xml;
 
 namespace WPF_Exchange
-{
-    /// <summary>
-    /// Interaction logic for SredniKursWalut.xaml
-    /// </summary>
+{   
     public partial class SredniKursWalut : Page
     {
         public XmlDocument kurs = new XmlDocument();
 
         public SredniKursWalut()
         {
-            InitializeComponent();
-            
-        }
-
-   
+            InitializeComponent();            
+        }  
 
         void GetData()
         {
-            Data nazwa = new Data();
-            
-            kurs.Load(nazwa.NazwaPliku());                                            //ladowanie danych z NBP       
+            Data nazwa = new Data();            
+            kurs.Load(nazwa.NazwaPliku());                                                  //ladowanie danych z NBP       
             XmlNodeList elemList = kurs.GetElementsByTagName("nazwa_waluty");
             XmlNodeList elemList2 = kurs.GetElementsByTagName("kurs_sredni");
             XmlNodeList elemList3 = kurs.GetElementsByTagName("data_publikacji");
@@ -71,15 +64,20 @@ namespace WPF_Exchange
         }
 
         private void BC_Refresh(object sender, RoutedEventArgs e)
-        {
-            GetData();
-            FillList();
+        {try
+            {
+                GetData();
+                FillList();
+            }
+            catch
+            {
+                MessageBox.Show("Nieznany błąd!");
+            }
         }
 
         private void CurrencyList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             XmlNodeList elemList2 = kurs.GetElementsByTagName("kurs_sredni");
-
             int x = CurrencyList.SelectedIndex;
             List_value.Text = elemList2[x].InnerXml.ToString();
         }

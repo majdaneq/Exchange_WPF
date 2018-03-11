@@ -8,15 +8,14 @@ namespace WPF_Exchange
 {
     class Data : SredniKursWalut
     {
-        public Data()
-        { }
-        ~Data()
-        { }
+        public Data(){ }
+        ~Data(){ }
         static int dayoy = DateTime.Today.DayOfYear;
         int weekofYear = dayoy / 7;
         static int day = DateTime.Today.Day;
         static int month = DateTime.Today.Month;
         static string year = DateTime.Today.Year.ToString();
+
         string numerNotowania()
         {
             int numerNotowania = 0;
@@ -42,6 +41,7 @@ namespace WPF_Exchange
 
             return numerNotowaniaS;
         }
+
         string data()
         {
             string dayS;
@@ -68,6 +68,7 @@ namespace WPF_Exchange
 
             return year + monthS + dayS;
         }
+
         public string NazwaPliku()
         {
             string filename = "http://www.nbp.pl/kursy/xml/a" + numerNotowania() + "z" +data() + ".xml";

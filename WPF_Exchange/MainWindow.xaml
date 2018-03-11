@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:WPF_Exchange"
         mc:Ignorable="d"
         ResizeMode="NoResize"
+        
         Title="Kursy Walut" Height="370" Width="600" BorderBrush="#FF470808" Foreground="Black" OpacityMask="#FF6C2C2C" Background="#FF8F8D8D">
     <Grid Background="#FFFBFBFB">
         <Grid.ColumnDefinitions>
@@ -19,10 +20,10 @@
         <Button Name ="ButtHis" HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Width="130" Content="Historia" Margin="22.84,0,0,0" RenderTransformOrigin="0.499,1.483" Foreground="White" BorderBrush="Black" Background="#FF0078D7" Click="BC_Historia" Grid.Column="1"/>
         <ToolBar  HorizontalAlignment="Left" VerticalAlignment="Top" Height="31"  Width="70" Header="Opcje" RenderTransformOrigin="0.499,1.483" Foreground="White" BorderBrush="Black" Background="#FF0078D7">
             <Button Content="Info" Click="InfoButton"/>
-            <Button Content="Export danych" Click="Kliku"/>
+            <Button Content="Export danych" />
         </ToolBar>
 
-        <Frame Name="FrameMain" HorizontalAlignment="Left" VerticalAlignment="Top" Height="290" Width="590" Margin="0,31,0,0" Grid.ColumnSpan="2"/>
+        <Frame Name="FrameMain" HorizontalAlignment="Left" VerticalAlignment="Top" Height="305" Width="590" Margin="0,36,0,0" Grid.ColumnSpan="2"/>
 
 
 
