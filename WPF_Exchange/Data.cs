@@ -69,11 +69,16 @@ namespace WPF_Exchange
             return year + monthS + dayS;
         }
 
-        public string NazwaPliku()
+        public string NazwaPlikuSKW()
         {
             string filename = "http://www.nbp.pl/kursy/xml/a" + numerNotowania() + "z" +data() + ".xml";
             return filename;
         }
+        public string NazwaPlikuKKS()
+        {
+            string filename = "http://www.nbp.pl/kursy/xml/c" + numerNotowania() + "z" + data() + ".xml";
+            return filename;
+        }     
                 
 }
 }

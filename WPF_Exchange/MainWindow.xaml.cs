@@ -21,6 +21,7 @@ namespace WPF_Exchange
     /// </summary>
     public partial class MainWindow : Window
     {
+       
         short active=0;
 
         public MainWindow()

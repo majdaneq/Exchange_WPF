@@ -28,21 +28,21 @@ namespace WPF_Exchange
         void GetData()
         {
             Data nazwa = new Data();            
-            kurs.Load(nazwa.NazwaPliku());                                                  //ladowanie danych z NBP       
+            kurs.Load(nazwa.NazwaPlikuSKW());                                                  //ladowanie danych z NBP       
             XmlNodeList elemList = kurs.GetElementsByTagName("nazwa_waluty");
             XmlNodeList elemList2 = kurs.GetElementsByTagName("kurs_sredni");
             XmlNodeList elemList3 = kurs.GetElementsByTagName("data_publikacji");
 
-            dolary.Text = search(elemList, elemList2, "dolar amerykański") + " PLN";
-            euro.Text = search(elemList, elemList2, "euro") + " PLN";
-            franki.Text = search(elemList, elemList2, "frank szwajcarski") + " PLN";
-            funt.Text = search(elemList, elemList2, "funt szterling") + " PLN";
-            korony.Text = search(elemList, elemList2, "korona czeska") + " PLN";
-            ruble.Text = search(elemList, elemList2, "rubel rosyjski") + " PLN";
-            update.Text = elemList3[0].InnerXml.ToString();
+            //dolary.Text = search(elemList, elemList2, "dolar amerykański") + " PLN";
+            //euro.Text = search(elemList, elemList2, "euro") + " PLN";
+            //franki.Text = search(elemList, elemList2, "frank szwajcarski") + " PLN";
+            //funt.Text = search(elemList, elemList2, "funt szterling") + " PLN";
+            //korony.Text = search(elemList, elemList2, "korona czeska") + " PLN";
+            //ruble.Text = search(elemList, elemList2, "rubel rosyjski") + " PLN";
+            //update.Text = elemList3[0].InnerXml.ToString();
         }
 
-        string search(XmlNodeList currency, XmlNodeList cost, string s_currency)
+        public string search(XmlNodeList currency, XmlNodeList cost, string s_currency)
         {
             for (int i = 0; i < currency.Count; i++)
             {
