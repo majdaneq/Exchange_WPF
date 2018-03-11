@@ -21,64 +21,41 @@ namespace WPF_Exchange
     /// </summary>
     public partial class MainWindow : Window
     {
-        public XmlDocument kurs = new XmlDocument();
+        
 
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();            
+        }        
 
-            GetData();
-            FillList();
-        }       
-
-        void GetData()
-        {           
-           kurs.Load("http://www.nbp.pl/kursy/xml/a049z180309.xml");   //ladowanie danych z NBP       
-           XmlNodeList elemList =  kurs.GetElementsByTagName("nazwa_waluty");
-           XmlNodeList elemList2 = kurs.GetElementsByTagName("kurs_sredni");
-           XmlNodeList elemList3 = kurs.GetElementsByTagName("data_publikacji");
-
-           dolary.Text = search(elemList, elemList2,"dolar amerykański") + " PLN";
-           euro.Text = search(elemList, elemList2, "euro") + " PLN";
-           franki.Text = search(elemList, elemList2, "frank szwajcarski") + " PLN";
-           funt.Text = search(elemList, elemList2, "funt szterling") + " PLN";
-           korony.Text = search(elemList, elemList2, "korona czeska") + " PLN";
-           ruble.Text = search(elemList, elemList2, "rubel rosyjski") + " PLN";
-           update.Text = elemList3[0].InnerXml.ToString();
+        public void InfoButton(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Wykonał Szymon Bortel");
         }
 
-        string search(XmlNodeList currency,XmlNodeList cost, string s_currency)
+        private void BC_SredniKurs(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < currency.Count; i++)
-            {
-                if (currency[i].InnerXml.ToString() == s_currency)
-                { return cost[i].InnerXml.ToString();
-                }   
-            }
-            return "ERROR";           
+            FrameMain.Content = new SredniKursWalut();
+            ButtSredniKurs.Background=new SolidColorBrush(Color.FromRgb(0,0,0));
+        }
+        private void BC_KursKupSprzed(object sender, RoutedEventArgs e)
+        {
+            FrameMain.Content = new KursKupnaSprzedazy();
         }
 
-        void FillList()
+        private void BC_KalkulatorWalut(object sender, RoutedEventArgs e)
         {
-             XmlNodeList elemList = kurs.GetElementsByTagName("nazwa_waluty");
-            for (int i = 0; i < elemList.Count; i++)
-            {
-                CurrencyList.Items.Add(elemList[i].InnerXml.ToString());              
-            }            
+            FrameMain.Content = new KalkulatorWalut();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BC_Historia(object sender, RoutedEventArgs e)
         {
-            GetData();
-            FillList();
+            FrameMain.Content = new Historia();
         }
 
-        private void CurrencyList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            XmlNodeList elemList2 = kurs.GetElementsByTagName("kurs_sredni");
-
-            int x = CurrencyList.SelectedIndex;
-                List_value.Text = elemList2[x].InnerXml.ToString();
+        private void Kliku(object sender, RoutedEventArgs e)
+        {          
+            
         }
     }
 

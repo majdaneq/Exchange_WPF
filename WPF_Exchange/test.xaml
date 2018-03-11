@@ -1,0 +1,23 @@
+﻿<Page x:Class="WPF_Exchange.test"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Exchange"
+        mc:Ignorable="d"
+       
+        Title="Historia" Height="350" Width="600" Foreground="Black" OpacityMask="#FF6C2C2C" Background="#FF8F8D8D">
+
+    <Grid Background="#FFFBFBFB">
+
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Width="130" Content="Średni kurs walut" Margin="72,0,0,0" RenderTransformOrigin="0.499,1.483" Foreground="White" BorderBrush="Black" Background="#FF0078D7"/>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Width="130" Content="Kurs sprzedaży i kupna" Margin="202,0,0,0" RenderTransformOrigin="0.499,1.483" Foreground="White" BorderBrush="Black" Background="#FF0078D7"/>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Width="130" Content="Kalkulator walut" Margin="332,0,0,0" RenderTransformOrigin="0.499,1.483" Foreground="White" BorderBrush="Black" Background="#FF0078D7"/>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Height="31" Width="130" Content="Historia" Margin="462,0,0,0" RenderTransformOrigin="0.499,1.483" Foreground="White" BorderBrush="Black" Background="#FF0078D7"/>
+        <ToolBar  HorizontalAlignment="Left" VerticalAlignment="Top" Height="31"  Width="70" Header="Opcje" RenderTransformOrigin="0.499,1.483" Foreground="White" BorderBrush="Black" Background="#FF0078D7">
+            <Button Content="Info"/>
+            <Button Content="Export danych"/>
+        </ToolBar>
+
+    </Grid>
+</Page>
