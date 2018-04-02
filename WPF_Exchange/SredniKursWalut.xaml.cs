@@ -15,11 +15,7 @@ using System.Windows.Shapes;
 using System.Xml;
 
 namespace WPF_Exchange
-{   public class waluty
-    {
-
-    }
-    public partial class SredniKursWalut : Page
+{   public partial class SredniKursWalut : Page
     {
         
 
@@ -34,9 +30,15 @@ namespace WPF_Exchange
 
         void GetData()
         {
-            if (error == false) kurs.Load(nazwa.NazwaPliku("SKW"));
-            else kurs.Load(nazwa.filename);                                            //ladowanie danych z NBP       
-
+            try
+            {
+                if (error == false) kurs.Load(nazwa.NazwaPliku("SKW"));
+                else kurs.Load(nazwa.filename);                                            //ladowanie danych z NBP       
+            }
+            catch
+            {
+                kurs.Load("http://www.nbp.pl/kursy/xml/a064z180330.xml");
+            }
 
             XmlNodeList elemList = kurs.GetElementsByTagName("nazwa_waluty");
             XmlNodeList elemList2 = kurs.GetElementsByTagName("kurs_sredni");
@@ -83,7 +85,8 @@ namespace WPF_Exchange
             {
                 error = true;
                 nazwa.correctDate("SKW");
-                GetData();
+                
+                    GetData();
                 FillList();
             }   
         }

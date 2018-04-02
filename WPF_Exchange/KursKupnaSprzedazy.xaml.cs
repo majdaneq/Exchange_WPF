@@ -38,9 +38,15 @@ namespace WPF_Exchange
         
         private void SetData()
         {
-
-            if (!error) kurs.Load(data.NazwaPliku("KKS"));                                                  //ladowanie danych z NBP              
-            else kurs.Load(data.filename);            
+            try
+            {
+                if (!error) kurs.Load(data.NazwaPliku("KKS"));                                                  //ladowanie danych z NBP              
+                else kurs.Load(data.filename);
+            }
+            catch
+            {
+                kurs.Load("http://www.nbp.pl/kursy/xml/c064z180330.xml");
+            }
 
             SredniKursWalut kursy = new SredniKursWalut();
             update.Text = PublicationDate[0].InnerXml.ToString();
