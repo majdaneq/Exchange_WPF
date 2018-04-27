@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
 
+
 namespace WPF_Exchange
 {
     
@@ -28,8 +29,9 @@ namespace WPF_Exchange
         XmlNodeList PublicationDate; 
 
         public KursKupnaSprzedazy()
-        {
-            CurrencyName = kurs.GetElementsByTagName("nazwa_waluty");
+        { 
+
+            CurrencyName =   kurs.GetElementsByTagName("nazwa_waluty");
             listBuyPrice = kurs.GetElementsByTagName("kurs_kupna");
             listSellPrice = kurs.GetElementsByTagName("kurs_sprzedazy");
             PublicationDate = kurs.GetElementsByTagName("data_publikacji");
@@ -40,12 +42,13 @@ namespace WPF_Exchange
         {
             try
             {
-                if (!error) kurs.Load(data.NazwaPliku("KKS"));                                                  //ladowanie danych z NBP              
-                else kurs.Load(data.filename);
+                //if (!error) kurs.Load(data.NazwaPliku("KKS"));                                                  //ladowanie danych z NBP              
+                //else
+                 kurs.Load("http://www.nbp.pl/kursy/xml/LastC.xml"); //data.filename
             }
             catch
             {
-                kurs.Load("http://www.nbp.pl/kursy/xml/c064z180330.xml");
+                kurs.Load("http://www.nbp.pl/kursy/xml/LastC.xml");
             }
 
             SredniKursWalut kursy = new SredniKursWalut();

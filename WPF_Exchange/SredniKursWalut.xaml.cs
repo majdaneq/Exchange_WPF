@@ -32,12 +32,13 @@ namespace WPF_Exchange
         {
             try
             {
-                if (error == false) kurs.Load(nazwa.NazwaPliku("SKW"));
-                else kurs.Load(nazwa.filename);                                            //ladowanie danych z NBP       
+               // if (error == false)
+                    kurs.Load("http://www.nbp.pl/kursy/xml/LastA.xml");
+               // else kurs.Load(nazwa.filename);                                            //ladowanie danych z NBP       
             }
             catch
             {
-                kurs.Load("http://www.nbp.pl/kursy/xml/a064z180330.xml");
+                kurs.Load("http://www.nbp.pl/kursy/xml/LastA.xml");
             }
 
             XmlNodeList elemList = kurs.GetElementsByTagName("nazwa_waluty");

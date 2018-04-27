@@ -81,14 +81,14 @@ namespace WPF_Exchange
             xs = xs.Insert(0, "0");
             string nos = DateTime.Today.Day.ToString();
             //nos = nos.Insert(0, "0");
-            string newNumNot = filename.Replace(numerNotowaniaS, "049");
-            string NewDay = filename.Replace(nos, xs);
-                switch (option)
-            {
-                case "SKW": filename = "http://www.nbp.pl/kursy/xml/a" + "049" + "z" + year+monthS+xs + ".xml"; break;
-                case "KKS": filename = "http://www.nbp.pl/kursy/xml/c" + "049" + "z" + year + monthS + xs + ".xml"; break;
-
-            }
+            //string newNumNot = filename.Replace(numerNotowaniaS, "049");
+           // string NewDay = filename.Replace(nos, xs);
+          //      switch (option)
+          //  {
+          //      case "SKW": filename = "http://www.nbp.pl/kursy/xml/a" + "049" + "z" + year+monthS+xs + ".xml"; break;
+          //      case "KKS": filename = "http://www.nbp.pl/kursy/xml/c" + "049" + "z" + year + monthS + xs + ".xml"; break;
+//
+            //}
             
         }
         public string NazwaPliku(string name)
@@ -96,7 +96,10 @@ namespace WPF_Exchange
             {
                 case "SKW": filename = "http://www.nbp.pl/kursy/xml/a" + numerNotowania() + "z" + data() + ".xml"; return filename;
                 case "KKS": filename = "http://www.nbp.pl/kursy/xml/c" + numerNotowania() + "z" + data() + ".xml"; return filename;
-            }  
+            }
+
+            //CHANGE
+            filename = "http://www.nbp.pl/kursy/xml/LastA.xml";
             return filename;
         }
        
